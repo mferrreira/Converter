@@ -1,11 +1,12 @@
 from moviepy.editor import VideoFileClip, AudioFileClip
-from pydub import AudioSegment
+from Utils.ErrorDialog import ErrorDialog
 from PIL import Image
 import os
+from pydub import AudioSegment
 
 class Converter:
     def __init__(self):
-        pass
+        ...
 
     def convert_image(self, files, convert_to, additional_data=None):
         print(convert_to)
@@ -31,7 +32,7 @@ class Converter:
                 resized_image.save(output_file_path + f'.{convert_to.lower()}', format=convert_to.lower())
 
             except Exception as e:
-                print(f"Erro ao converter a imagem {file_path}: {e}")
+                ErrorDialog.show_error_dialog("Erro", f"Erro ao converter a imagem {file_path}: {e}", "tente novamente!")
                 return False
         
         return True
@@ -81,7 +82,7 @@ class Converter:
                     video_clip.audio.write_audiofile(audio_output_path)
 
             except Exception as e:
-                print(f"Erro ao converter o vídeo {file_path}: {e}")
+                ErrorDialog.show_error_dialog("Erro", f"Erro ao converter o vídeo {file_path}: {e}", "Tente Novamente")
                 return False
         
         return True
@@ -98,6 +99,7 @@ class Converter:
         for file_path in files:
             try:
                 audio = AudioSegment.from_file(file_path)
+                print('chegou aqui')
                 
                 file_name, file_ext = os.path.splitext(file_path)
                 output_file_path = f"{file_name}_converted.{convert_to.lower()}"
@@ -105,11 +107,10 @@ class Converter:
                 format_to = format_mapping.get(convert_to.lower(), None)
                 if format_to is None:
                     raise ValueError(f"Formato de áudio não suportado: {convert_to}")
-                
                 audio.export(output_file_path, format=format_to)
 
             except Exception as e:
-                print(f"Erro ao converter o áudio {file_path}: {e}")
+                ErrorDialog.show_error_dialog("Erro", f"Erro ao converter o áudio {file_path}: {e}", "Verifique se o programa FFMPEG está corretamente instalado")
                 return False
 
         return True

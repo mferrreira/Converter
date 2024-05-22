@@ -23,10 +23,19 @@
       <height>691</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(189, 189, 189);
+color: #000;
+
+</string>
+    </property>
     <property name="currentIndex">
      <number>0</number>
     </property>
     <widget class="QWidget" name="ConversionTab">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <attribute name="title">
       <string>Converter</string>
      </attribute>
@@ -42,8 +51,14 @@
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
         <widget class="QStackedWidget" name="ConversionOptions">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(111, 111, 111);
+border-radius: 10px;
+
+</string>
+         </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="main">
           <widget class="QPushButton" name="ConvertImagesButton">
@@ -54,6 +69,9 @@
              <width>181</width>
              <height>121</height>
             </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(223, 223, 223);</string>
            </property>
            <property name="text">
             <string>Converter Imagem</string>
@@ -68,6 +86,9 @@
              <height>121</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(223, 223, 223);</string>
+           </property>
            <property name="text">
             <string>Converter Audio</string>
            </property>
@@ -80,6 +101,9 @@
              <width>181</width>
              <height>121</height>
             </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(223, 223, 223);</string>
            </property>
            <property name="text">
             <string>Converter Vídeo</string>
@@ -133,10 +157,13 @@
             <property name="geometry">
              <rect>
               <x>0</x>
-              <y>70</y>
-              <width>601</width>
-              <height>51</height>
+              <y>0</y>
+              <width>611</width>
+              <height>181</height>
              </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: #eee;</string>
             </property>
             <property name="text">
              <string>Clique ou arraste um arquivo aqui</string>
@@ -176,6 +203,10 @@
              <height>231</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: #bbb;
+</string>
+           </property>
            <property name="frameShape">
             <enum>QFrame::Shape::StyledPanel</enum>
            </property>
@@ -185,9 +216,9 @@
            <widget class="QWidget" name="verticalLayoutWidget">
             <property name="geometry">
              <rect>
-              <x>0</x>
+              <x>10</x>
               <y>0</y>
-              <width>431</width>
+              <width>421</width>
               <height>231</height>
              </rect>
             </property>
@@ -195,7 +226,7 @@
              <item>
               <widget class="QRadioButton" name="convertWav">
                <property name="text">
-                <string>WAV</string>
+                <string>WMV</string>
                </property>
               </widget>
              </item>
@@ -245,6 +276,9 @@
              <height>51</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(223, 223, 223);</string>
+           </property>
            <property name="text">
             <string>Converter</string>
            </property>
@@ -257,6 +291,9 @@
              <width>80</width>
              <height>23</height>
             </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(223, 223, 223);</string>
            </property>
            <property name="text">
             <string>Voltar</string>
@@ -364,10 +401,13 @@
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>70</y>
-                <width>601</width>
-                <height>51</height>
+                <y>0</y>
+                <width>611</width>
+                <height>181</height>
                </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: #eee;</string>
               </property>
               <property name="text">
                <string>Clique ou arraste um arquivo aqui</string>
@@ -407,6 +447,10 @@
                <height>231</height>
               </rect>
              </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: #bbb;
+</string>
+             </property>
              <property name="frameShape">
               <enum>QFrame::Shape::StyledPanel</enum>
              </property>
@@ -416,9 +460,9 @@
              <widget class="QWidget" name="verticalLayoutWidget_2">
               <property name="geometry">
                <rect>
-                <x>0</x>
+                <x>10</x>
                 <y>0</y>
-                <width>431</width>
+                <width>421</width>
                 <height>231</height>
                </rect>
               </property>
@@ -456,6 +500,9 @@
                <height>51</height>
               </rect>
              </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(223, 223, 223);</string>
+             </property>
              <property name="text">
               <string>Converter</string>
              </property>
@@ -468,6 +515,9 @@
                <width>80</width>
                <height>23</height>
               </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(223, 223, 223);</string>
              </property>
              <property name="text">
               <string>Voltar</string>
@@ -775,10 +825,13 @@
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>70</y>
-                <width>601</width>
-                <height>51</height>
+                <y>0</y>
+                <width>611</width>
+                <height>181</height>
                </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: #eee;</string>
               </property>
               <property name="text">
                <string>Clique ou arraste um arquivo aqui</string>
@@ -818,6 +871,10 @@
                <height>231</height>
               </rect>
              </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: #bbb;
+</string>
+             </property>
              <property name="frameShape">
               <enum>QFrame::Shape::StyledPanel</enum>
              </property>
@@ -827,9 +884,9 @@
              <widget class="QWidget" name="verticalLayoutWidget_6">
               <property name="geometry">
                <rect>
-                <x>0</x>
+                <x>10</x>
                 <y>0</y>
-                <width>431</width>
+                <width>421</width>
                 <height>231</height>
                </rect>
               </property>
@@ -866,6 +923,9 @@
                <width>171</width>
                <height>51</height>
               </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(223, 223, 223);</string>
              </property>
              <property name="text">
               <string>Converter</string>
@@ -905,6 +965,9 @@
                <width>80</width>
                <height>23</height>
               </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(223, 223, 223);</string>
              </property>
              <property name="text">
               <string>Voltar</string>
@@ -952,6 +1015,9 @@
         <height>51</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(223, 223, 223);</string>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -994,6 +1060,9 @@
         <height>71</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(223, 223, 223);</string>
+      </property>
       <property name="text">
        <string>Baixar</string>
       </property>
@@ -1007,7 +1076,7 @@
      <x>0</x>
      <y>0</y>
      <width>1525</width>
-     <height>20</height>
+     <height>33</height>
     </rect>
    </property>
   </widget>
