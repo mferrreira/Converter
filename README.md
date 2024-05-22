@@ -12,4 +12,3 @@ Basta executar `pip install -r requirements.txt` para instalar as dependência e
 - Conversão de Arquivos de vídeo, imagem e áudio
 - Upscale 2x e 4x na resolução das imagens
 - Interface gráfica (feia, porém funcional)
-- Download de vídeo/áudio do youtube
