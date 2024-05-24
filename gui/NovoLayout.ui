@@ -58,14 +58,14 @@ border-radius: 10px;
 </string>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="main">
           <widget class="QPushButton" name="ConvertImagesButton">
            <property name="geometry">
             <rect>
-             <x>610</x>
-             <y>380</y>
+             <x>390</x>
+             <y>250</y>
              <width>181</width>
              <height>121</height>
             </rect>
@@ -74,14 +74,14 @@ border-radius: 10px;
             <string notr="true">background-color: rgb(223, 223, 223);</string>
            </property>
            <property name="text">
-            <string>Converter Imagem</string>
+            <string>Imagem</string>
            </property>
           </widget>
           <widget class="QPushButton" name="ConvertAudioButton">
            <property name="geometry">
             <rect>
-             <x>610</x>
-             <y>210</y>
+             <x>790</x>
+             <y>50</y>
              <width>181</width>
              <height>121</height>
             </rect>
@@ -90,14 +90,14 @@ border-radius: 10px;
             <string notr="true">background-color: rgb(223, 223, 223);</string>
            </property>
            <property name="text">
-            <string>Converter Audio</string>
+            <string>Audio</string>
            </property>
           </widget>
           <widget class="QPushButton" name="ConvertVideoButton">
            <property name="geometry">
             <rect>
-             <x>610</x>
-             <y>40</y>
+             <x>390</x>
+             <y>50</y>
              <width>181</width>
              <height>121</height>
             </rect>
@@ -106,7 +106,23 @@ border-radius: 10px;
             <string notr="true">background-color: rgb(223, 223, 223);</string>
            </property>
            <property name="text">
-            <string>Converter Vídeo</string>
+            <string>Vídeo</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="ConvertDocumentButton">
+           <property name="geometry">
+            <rect>
+             <x>790</x>
+             <y>250</y>
+             <width>181</width>
+             <height>121</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(223, 223, 223);</string>
+           </property>
+           <property name="text">
+            <string>Documento</string>
            </property>
           </widget>
          </widget>
@@ -976,6 +992,195 @@ border-radius: 10px;
            </widget>
           </widget>
          </widget>
+         <widget class="QWidget" name="PagePDF">
+          <widget class="QLabel" name="label_18">
+           <property name="geometry">
+            <rect>
+             <x>560</x>
+             <y>20</y>
+             <width>251</width>
+             <height>51</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LayoutDirection::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string>Converter Documento</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="back_from_document">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>30</y>
+             <width>80</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(223, 223, 223);</string>
+           </property>
+           <property name="text">
+            <string>Voltar</string>
+           </property>
+          </widget>
+          <widget class="QFrame" name="DroppableDocumentArea">
+           <property name="geometry">
+            <rect>
+             <x>80</x>
+             <y>230</y>
+             <width>611</width>
+             <height>181</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(154, 153, 150);</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Shape::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Shadow::Raised</enum>
+           </property>
+           <widget class="QLabel" name="droppableVideoLabel_9">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>611</width>
+              <height>181</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: #eee;</string>
+            </property>
+            <property name="text">
+             <string>Clique ou arraste um arquivo aqui</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QLabel" name="label_19">
+           <property name="geometry">
+            <rect>
+             <x>950</x>
+             <y>130</y>
+             <width>251</width>
+             <height>51</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>17</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Converter para:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="QFrame" name="ConvertToDocumentFormatOptions">
+           <property name="geometry">
+            <rect>
+             <x>860</x>
+             <y>200</y>
+             <width>431</width>
+             <height>231</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: #bbb;
+</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Shape::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Shadow::Raised</enum>
+           </property>
+           <widget class="QWidget" name="verticalLayoutWidget_9">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>0</y>
+              <width>421</width>
+              <height>231</height>
+             </rect>
+            </property>
+            <layout class="QVBoxLayout" name="documentFormats">
+             <item>
+              <widget class="QRadioButton" name="convertPDF">
+               <property name="text">
+                <string>PDF</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="convertDOCX">
+               <property name="text">
+                <string>DOCX</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="convertDOC">
+               <property name="text">
+                <string>DOC</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+          <widget class="QPushButton" name="convertDocument">
+           <property name="geometry">
+            <rect>
+             <x>1190</x>
+             <y>510</y>
+             <width>171</width>
+             <height>51</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(223, 223, 223);</string>
+           </property>
+           <property name="text">
+            <string>Converter</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="document_file_name">
+           <property name="geometry">
+            <rect>
+             <x>860</x>
+             <y>450</y>
+             <width>431</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(192, 191, 188);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="placeholderText">
+            <string>Nome do arquivo</string>
+           </property>
+          </widget>
+         </widget>
         </widget>
        </item>
       </layout>
@@ -1076,7 +1281,7 @@ border-radius: 10px;
      <x>0</x>
      <y>0</y>
      <width>1525</width>
-     <height>33</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
