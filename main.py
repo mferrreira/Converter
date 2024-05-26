@@ -4,8 +4,9 @@ from PySide6.QtGui import *
 
 from Utils.Converter import Converter
 from Utils.Downloader import YouTubeDownloader
+from Utils.Organizer import Organizer
 
-from gui.NovoLayout_ui import Ui_MainWindow
+from gui.NovoLayout import Ui_MainWindow
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -59,6 +60,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.downloadVideoFromYoutube.clicked.connect(self.downloadYoutubeVideo)
 
+        self.select_folder_to_organize.clicked.connect(self.handle_organize_folder)
+
+    def handle_organize_folder(self, folder):
+        folder = QFileDialog.getExistingDirectory(caption="Selecione a pasta a ser organizada: ")
+        res = Organizer(folder).organize_files()
+        
+        self.show_success_dialog(res)
 
     def downloadYoutubeVideo(self):
 
