@@ -1,16 +1,16 @@
 from moviepy.editor import VideoFileClip, AudioFileClip
 from Utils.ErrorDialog import ErrorDialog
 from pydub import AudioSegment
+
 from docx import Document
+from docx.shared import Inches
+from pdf2docx import Converter as convert
+
 from fpdf import FPDF
 
 from PIL import Image
 
-from PySide6.QtWidgets import QFileDialog
-
 import os
-
-
 
 class Converter:
     def __init__(self):
@@ -107,7 +107,6 @@ class Converter:
         for file_path in files:
             try:
                 audio = AudioSegment.from_file(file_path)
-                print('chegou aqui')
                 
                 file_name, file_ext = os.path.splitext(file_path)
                 output_file_path = f"{file_name}_converted.{convert_to.lower()}"
@@ -123,40 +122,77 @@ class Converter:
 
         return True
     
-    def convert_document(self, files, convert_to, additional_data=None, output_path=None):
+    def convert_document(self, files, convert_to, additional_data, output_path):
         try:
-            output_format = convert_to.lower()
-            output_name = additional_data if additional_data else 'output'
-            output_path = output_path if output_path else '.'
+            if not files:
+                ErrorDialog.show_error_dialog("Erro", "Sem arquivos para converter.")
+                return False
 
-            if output_format == 'docx':
-                doc = Document()
-                for file in files:
-                    doc.add_picture(file)
-                output_file_path = os.path.join(output_path, f"{output_name}.docx")
-                doc.save(output_file_path)
+            if convert_to not in ['PDF', 'DOCX']:
+                ErrorDialog.show_error_dialog("Erro", "Tipo de conversão não suportada.")
+                return False
 
-            elif output_format == 'pdf':
-                pdf = FPDF()
-                pdf.set_auto_page_break(auto=True, margin=15)  
+            output_file = os.path.join(output_path, f"{additional_data}.{convert_to.lower()}")
 
-                for file in files:
-                    image_width, image_height = pdf.get_image_size(file)
-                    page_width = pdf.w - 2 * pdf.l_margin
-                    page_height = pdf.h - 2 * pdf.t_margin
-                    if image_width > page_width or image_height > page_height:
+            if all(file.endswith(('.png', '.jpg', '.jpeg', '.webp')) for file in files):
+                if convert_to == 'PDF':
+                    pdf = FPDF()
+                    for file in files:
                         pdf.add_page()
-                    pdf.image(file, x=pdf.l_margin, y=pdf.get_y(), w=page_width)
-                output_file_path = os.path.join(output_path, f"{output_name}.pdf")
-                pdf.output(output_file_path)
+                        pdf.image(file, x=10, y=10, w=190)  # Ajuste conforme necessário
+                    pdf.output(output_file)
+                    return True
+                
+                elif convert_to == 'DOCX':
+                    doc = Document()
+                    for file in files:
+                        doc.add_picture(file, width=Inches(2.0))  # Ajuste conforme necessário
+                    doc.save(output_file)
+                    return True
+
+            elif all(file.endswith('.pdf') for file in files) and convert_to == 'DOCX':
+                doc = Document()
+                for pdf_file in files:
+                    converter = convert(pdf_file=pdf_file)
+                    converter.convert(output_file, start=0, end=None)
+                    converter.close()
+                    return True
+
+            elif all(file.endswith('.docx') for file in files) and convert_to == 'PDF':
+                pdf = FPDF()
+                pdf.set_auto_page_break(auto=True, margin=15)
+                pdf.set_font("Arial", size=12)
+                
+                for docx_file in files:
+                    doc = Document(docx_file)
+                    
+                    for para in doc.paragraphs:
+                        text = para.text.strip()
+                        if text:
+                            pdf.add_page()
+                            pdf.multi_cell(0, 10, text)
+                    
+                    for rel in doc.part.rels.values():
+                        if "image" in rel.target_ref:
+                            image = rel.target_part
+                            image_bytes = image.blob
+                            image_file = os.path.join(output_path, "temp_image.png")
+                            
+                            with open(image_file, "wb") as img_file:
+                                img_file.write(image_bytes)
+                            
+                            pdf.add_page()
+                            pdf.image(image_file, x=10, y=10, w=190)  # Ajuste conforme necessário
+                            
+                            os.remove(image_file)  # Remove o arquivo de imagem temporário
+                
+                pdf.output(output_file)
+                return True
 
             else:
-                ErrorDialog.show_error_dialog( f"Erro ao criar o documento {output_name}.{output_format}: {e}", "Verifique se os arquivos são válidos", "suporte a .DOC está sendo implementado")
-            return False
+                ErrorDialog.show_error_dialog("Erro", "Arquivos não suportados ou erro de conversão.")
+                return False
 
         except Exception as e:
-            ErrorDialog.show_error_dialog(
-                f"Erro ao criar o documento {output_name}.{output_format}: {e}",
-                "Verifique se os arquivos são válidos", "suporte a .DOC está sendo implementado"
-            )
+            ErrorDialog.show_error_dialog("Erro de conversão", str(e))
             return False

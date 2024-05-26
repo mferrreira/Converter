@@ -2,9 +2,6 @@ from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 
-from PIL import Image, ImageFilter
-from threading import Thread
-
 from Utils.Converter import Converter
 from Utils.Downloader import YouTubeDownloader
 
@@ -140,8 +137,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.separateAudio.setChecked(False)
         self.downloadMP3.setChecked(False)
         self.downloadMP4.setChecked(False)
-
-
 
 def main():
     app = QApplication([])
