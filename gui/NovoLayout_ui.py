@@ -460,6 +460,17 @@ class Ui_MainWindow(object):
         self.downloadVideoFromYoutube.setGeometry(QRect(590, 430, 231, 71))
         self.downloadVideoFromYoutube.setStyleSheet(u"background-color: rgb(223, 223, 223);")
         self.MainTab.addTab(self.DownloadTab, "")
+        self.OrganizeTab = QWidget()
+        self.OrganizeTab.setObjectName(u"OrganizeTab")
+        self.label_14 = QLabel(self.OrganizeTab)
+        self.label_14.setObjectName(u"label_14")
+        self.label_14.setGeometry(QRect(540, 40, 321, 71))
+        self.label_14.setFont(font)
+        self.label_14.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.select_folder_to_organize = QPushButton(self.OrganizeTab)
+        self.select_folder_to_organize.setObjectName(u"select_folder_to_organize")
+        self.select_folder_to_organize.setGeometry(QRect(530, 250, 341, 101))
+        self.MainTab.addTab(self.OrganizeTab, "")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -471,7 +482,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.MainTab.setCurrentIndex(1)
+        self.MainTab.setCurrentIndex(2)
         self.ConversionOptions.setCurrentIndex(1)
         self.ConversionOptions_2.setCurrentIndex(1)
         self.ConversionOptions_3.setCurrentIndex(1)
@@ -549,5 +560,8 @@ class Ui_MainWindow(object):
         self.downloadMP3.setText(QCoreApplication.translate("MainWindow", u"Baixar Audio", None))
         self.downloadVideoFromYoutube.setText(QCoreApplication.translate("MainWindow", u"Baixar", None))
         self.MainTab.setTabText(self.MainTab.indexOf(self.DownloadTab), QCoreApplication.translate("MainWindow", u"Download", None))
+        self.label_14.setText(QCoreApplication.translate("MainWindow", u"Organizar pastas", None))
+        self.select_folder_to_organize.setText(QCoreApplication.translate("MainWindow", u"Clique para selecionar uma pasta", None))
+        self.MainTab.setTabText(self.MainTab.indexOf(self.OrganizeTab), QCoreApplication.translate("MainWindow", u"Organizar", None))
     # retranslateUi
 

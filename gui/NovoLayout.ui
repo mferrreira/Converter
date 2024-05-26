@@ -31,7 +31,7 @@
 color: #000;</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="ConversionTab">
      <property name="styleSheet">
@@ -1268,6 +1268,45 @@ color: #000;</string>
       </property>
       <property name="text">
        <string>Baixar</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="OrganizeTab">
+     <attribute name="title">
+      <string>Organizar</string>
+     </attribute>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>40</y>
+        <width>321</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Organizar pastas</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="select_folder_to_organize">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>250</y>
+        <width>341</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Clique para selecionar uma pasta</string>
       </property>
      </widget>
     </widget>
