@@ -25,15 +25,14 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(1525, 749)
+        MainWindow.setStyleSheet(u"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.MainTab = QTabWidget(self.centralwidget)
         self.MainTab.setObjectName(u"MainTab")
         self.MainTab.setGeometry(QRect(20, 10, 1481, 691))
-        self.MainTab.setStyleSheet(u"background-color: rgb(189, 189, 189);\n"
-"color: #000;\n"
-"\n"
-"")
+        self.MainTab.setStyleSheet(u"background-color: #fff;\n"
+"color: #000;")
         self.ConversionTab = QWidget()
         self.ConversionTab.setObjectName(u"ConversionTab")
         self.ConversionTab.setStyleSheet(u"")
@@ -45,10 +44,7 @@ class Ui_MainWindow(object):
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.ConversionOptions = QStackedWidget(self.gridLayoutWidget)
         self.ConversionOptions.setObjectName(u"ConversionOptions")
-        self.ConversionOptions.setStyleSheet(u"background-color: rgb(111, 111, 111);\n"
-"border-radius: 10px;\n"
-"\n"
-"")
+        self.ConversionOptions.setStyleSheet(u"")
         self.main = QWidget()
         self.main.setObjectName(u"main")
         self.ConvertImagesButton = QPushButton(self.main)
@@ -436,7 +432,7 @@ class Ui_MainWindow(object):
         self.document_file_name = QLineEdit(self.PagePDF)
         self.document_file_name.setObjectName(u"document_file_name")
         self.document_file_name.setGeometry(QRect(860, 450, 431, 31))
-        self.document_file_name.setStyleSheet(u"background-color: rgb(192, 191, 188);")
+        self.document_file_name.setStyleSheet(u"")
         self.ConversionOptions.addWidget(self.PagePDF)
 
         self.gridLayout.addWidget(self.ConversionOptions, 0, 0, 1, 1)
@@ -455,10 +451,10 @@ class Ui_MainWindow(object):
         self.youtubeURL.setStyleSheet(u"background-color: rgb(223, 223, 223);")
         self.downloadMP4 = QCheckBox(self.DownloadTab)
         self.downloadMP4.setObjectName(u"downloadMP4")
-        self.downloadMP4.setGeometry(QRect(450, 210, 83, 21))
+        self.downloadMP4.setGeometry(QRect(450, 210, 121, 21))
         self.downloadMP3 = QCheckBox(self.DownloadTab)
         self.downloadMP3.setObjectName(u"downloadMP3")
-        self.downloadMP3.setGeometry(QRect(450, 240, 83, 21))
+        self.downloadMP3.setGeometry(QRect(450, 240, 121, 21))
         self.downloadVideoFromYoutube = QPushButton(self.DownloadTab)
         self.downloadVideoFromYoutube.setObjectName(u"downloadVideoFromYoutube")
         self.downloadVideoFromYoutube.setGeometry(QRect(590, 430, 231, 71))
@@ -475,8 +471,8 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.MainTab.setCurrentIndex(0)
-        self.ConversionOptions.setCurrentIndex(4)
+        self.MainTab.setCurrentIndex(1)
+        self.ConversionOptions.setCurrentIndex(1)
         self.ConversionOptions_2.setCurrentIndex(1)
         self.ConversionOptions_3.setCurrentIndex(1)
         self.ConversionOptions_5.setCurrentIndex(1)
@@ -486,7 +482,7 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Convertt", None))
         self.ConvertImagesButton.setText(QCoreApplication.translate("MainWindow", u"Imagem", None))
         self.ConvertAudioButton.setText(QCoreApplication.translate("MainWindow", u"Audio", None))
         self.ConvertVideoButton.setText(QCoreApplication.translate("MainWindow", u"V\u00eddeo", None))
@@ -549,8 +545,8 @@ class Ui_MainWindow(object):
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"Baixar do youtube", None))
         self.youtubeURL.setText("")
         self.youtubeURL.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Cole o link do v\u00eddeo aqui", None))
-        self.downloadMP4.setText(QCoreApplication.translate("MainWindow", u"MP4", None))
-        self.downloadMP3.setText(QCoreApplication.translate("MainWindow", u"MP3", None))
+        self.downloadMP4.setText(QCoreApplication.translate("MainWindow", u"Baixar V\u00eddeo", None))
+        self.downloadMP3.setText(QCoreApplication.translate("MainWindow", u"Baixar Audio", None))
         self.downloadVideoFromYoutube.setText(QCoreApplication.translate("MainWindow", u"Baixar", None))
         self.MainTab.setTabText(self.MainTab.indexOf(self.DownloadTab), QCoreApplication.translate("MainWindow", u"Download", None))
     # retranslateUi

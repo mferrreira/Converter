@@ -11,7 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Convertt</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTabWidget" name="MainTab">
@@ -24,13 +27,11 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(189, 189, 189);
-color: #000;
-
-</string>
+     <string notr="true">background-color: #fff;
+color: #000;</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="ConversionTab">
      <property name="styleSheet">
@@ -52,13 +53,10 @@ color: #000;
        <item row="0" column="0">
         <widget class="QStackedWidget" name="ConversionOptions">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(111, 111, 111);
-border-radius: 10px;
-
-</string>
+          <string notr="true"/>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="main">
           <widget class="QPushButton" name="ConvertImagesButton">
@@ -1171,7 +1169,7 @@ border-radius: 10px;
             </rect>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: rgb(192, 191, 188);</string>
+            <string notr="true"/>
            </property>
            <property name="text">
             <string/>
@@ -1235,12 +1233,12 @@ border-radius: 10px;
        <rect>
         <x>450</x>
         <y>210</y>
-        <width>83</width>
+        <width>121</width>
         <height>21</height>
        </rect>
       </property>
       <property name="text">
-       <string>MP4</string>
+       <string>Baixar Vídeo</string>
       </property>
      </widget>
      <widget class="QCheckBox" name="downloadMP3">
@@ -1248,12 +1246,12 @@ border-radius: 10px;
        <rect>
         <x>450</x>
         <y>240</y>
-        <width>83</width>
+        <width>121</width>
         <height>21</height>
        </rect>
       </property>
       <property name="text">
-       <string>MP3</string>
+       <string>Baixar Audio</string>
       </property>
      </widget>
      <widget class="QPushButton" name="downloadVideoFromYoutube">

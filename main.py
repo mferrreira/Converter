@@ -20,6 +20,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             'document': Converter().convert_document,
         }
 
+        with open('style.qss') as qss:
+            self.setStyleSheet(qss.read())
+
+
         self.ConversionOptions.setCurrentIndex(0)
 
         self.DroppableAudioArea.setAcceptDrops(True)
@@ -57,14 +61,22 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 
     def downloadYoutubeVideo(self):
+
+        formats = {
+            'baixar vídeo': 'mp4',
+            'baixar audio':  'mp3',
+        }
+
+        
         url = self.youtubeURL.text()
-        options = [o.text().lower() for o in [self.downloadMP4, self.downloadMP3] if o.isChecked()]
+        options = [formats[o.text().lower()] for o in [self.downloadMP4, self.downloadMP3] if o.isChecked()]
         output_path = QFileDialog.getExistingDirectory(caption="Selecione a pasta de destino: ")
 
         if url and options and output_path:
             res = YouTubeDownloader().download_video(url, output_path, options)
-            print(res)
-        
+            self.show_success_dialog(res)
+
+
         self.wipe_all_fields()
 
     def navigate_to(self, index):
@@ -102,13 +114,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         res = self.Converter[conversion_type](files, convert_to, additional_data, output_path)
 
-        if res:
-            dialog = QMessageBox()
-            dialog.setIcon(QMessageBox.Information)
-            dialog.setWindowTitle("Sucesso")
-            dialog.setText("Operação concluída!")
-            dialog.setStandardButtons(QMessageBox.Ok)
-            dialog.exec_()
+        self.show_success_dialog(res)
 
         self.wipe_all_fields()
     
@@ -137,6 +143,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.separateAudio.setChecked(False)
         self.downloadMP3.setChecked(False)
         self.downloadMP4.setChecked(False)
+
+    def show_success_dialog(self, res):
+        if res:
+            dialog = QMessageBox()
+            dialog.setIcon(QMessageBox.Information)
+            dialog.setWindowTitle("Sucesso")
+            dialog.setText("Operação concluída!")
+            dialog.setStandardButtons(QMessageBox.Ok)
+            dialog.exec()
 
 def main():
     app = QApplication([])
