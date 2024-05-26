@@ -12,4 +12,4 @@ class ErrorDialog:
         if solution:
             error_dialog.setDetailedText(solution)
 
-        error_dialog.exec_()
+        error_dialog.exec()

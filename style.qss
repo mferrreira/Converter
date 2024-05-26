@@ -1,0 +1,97 @@
+/* Janela principal */
+QMainWindow {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+/* Tab Widget */
+QTabWidget::pane {
+    border: 1px solid #bcbcbc;
+}
+
+QTabBar::tab {
+    background: #e0e0e0;
+    border: 1px solid #bcbcbc;
+    padding: 10px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+QTabBar::tab:selected {
+    background: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+/* Stack Widget */
+QStackedWidget {
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+/* Botões */
+QPushButton {
+    background-color: #e0e0e0;
+    border: 1px solid #bcbcbc;
+    border-radius: 4px;
+}
+
+QPushButton:hover {
+    background-color: #d0d0d0;
+}
+
+QPushButton:pressed {
+    background-color: #c0c0c0;
+}
+
+/* Áreas Drop */
+QFrame {
+    background-color: #dcdcdc;
+    border: 1px dashed #aaaaaa;
+    border-radius: 4px;
+}
+
+QLabel {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+/* Campos de entrada */
+QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #bcbcbc;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+/* Opções de formato */
+QRadioButton, QCheckBox {
+    background-color: #ffffff;
+    color: #000;
+}
+
+/* Áreas de conversão */
+QVBoxLayout, QGridLayout {
+    background-color: #f0f0f0;
+}
+
+/* Título */
+QLabel[objectName^="label"] {
+    font-size: 16pt;
+    color: #333;
+}
+
+/* Páginas individuais */
+QWidget {
+    background-color: #ffffff;
+}
+
+/* Menu e Status Bar */
+QMenuBar {
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+QStatusBar {
+    background-color: #e0e0e0;
+    color: #000;
+}
