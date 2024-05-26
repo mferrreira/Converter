@@ -8,7 +8,7 @@ from pdf2docx import Converter as convert
 
 from fpdf import FPDF
 
-from PIL import Image
+from PIL import Image, ImageChops
 
 import os
 
@@ -17,7 +17,21 @@ class Converter:
         ...
 
     def convert_image(self, files, convert_to, additional_data=None, *args):
-        print(convert_to)
+        
+        def remove_whitespace(image):
+            img = image.convert("RGBA")
+            datas = img.getdata()
+            newData = []
+        
+            for item in datas:
+                if item[0] == 255 and item[1] == 255 and item[2] == 255:
+                    newData.append((255, 255, 255, 0))
+                else:
+                    newData.append(item)
+        
+            img.putdata(newData)
+            return img
+
         for file_path in files:
             try:
                 original_image = Image.open(file_path)
@@ -28,6 +42,9 @@ class Converter:
                         upscale_factor = 2
                     elif "upscale 4x" in additional_data:
                         upscale_factor = 4
+                    
+                    if any(data for data in additional_data if data.startswith('remover')):
+                        original_image = remove_whitespace(original_image)
 
                     new_size = (original_image.width * upscale_factor, original_image.height * upscale_factor)
                     resized_image = original_image.resize(new_size, Image.BICUBIC)

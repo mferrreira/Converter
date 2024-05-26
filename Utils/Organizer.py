@@ -10,7 +10,8 @@ class Organizer:
             "documentos": ["pdf", "doc", "docx", "txt", "xlsx", "ppt", "pptx"],
             "imagens": ["jpg", "jpeg", "png", "gif", "bmp", "tiff", "svg"],
             "audios": ["mp3", "wav", "aac", "flac", "ogg"],
-            "videos": ["mp4", "mkv", "flv", "avi", "mov", "wmv"]
+            "videos": ["mp4", "mkv", "flv", "avi", "mov", "wmv"],
+            "programas": ["exe", "msi"]
         }
         self._create_folders()
 
@@ -27,7 +28,6 @@ class Organizer:
     def organize_files(self):
         try:
             for item in self.base_path.iterdir():
-                print(item)
                 if item.is_file():
                     file_extension = item.suffix[1:].lower()
                     file_type = self._get_file_type(file_extension)
