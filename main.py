@@ -6,12 +6,20 @@ from Utils.Converter import Converter
 from Utils.Downloader import YouTubeDownloader
 from Utils.Organizer import Organizer
 
-from gui.NovoLayout import Ui_MainWindow
+from gui.NovoLayout_ui import Ui_MainWindow
+
+#TODO tratar conversão de PDF pra DOCX no windows
+
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+
+        self.setFixedSize(1525, 749)
+        self.setWindowTitle("Filetize")
+        self.setWindowIcon(QIcon('icon.png'))
+
 
         self.dropped_files = []
         self.Converter = {
@@ -21,7 +29,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             'document': Converter().convert_document,
         }
 
-        with open('style.qss') as qss:
+        with open('style.qss', encoding="utf8") as qss:
             self.setStyleSheet(qss.read())
 
 
@@ -54,7 +62,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.back_from_document.clicked.connect(lambda: self.navigate_to(0))
 
         self.ConvertVideo.clicked.connect(lambda: self.convert('video', self.VideoFormats, [self.separateAudio]))
-        self.ConvertImage.clicked.connect(lambda: self.convert('image', self.ImageFormats, [self.upscale2x, self.upscale4x]))
+        self.ConvertImage.clicked.connect(lambda: self.convert('image', self.ImageFormats, [self.upscale2x, self.upscale4x, self.remove_whitespace]))
         self.ConvertAudio.clicked.connect(lambda: self.convert('audio', self.AudioFormats))
         self.convertDocument.clicked.connect(lambda: self.convert('document', self.documentFormats, [self.document_file_name]))
 
@@ -74,7 +82,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             'baixar vídeo': 'mp4',
             'baixar audio':  'mp3',
         }
-
         
         url = self.youtubeURL.text()
         options = [formats[o.text().lower()] for o in [self.downloadMP4, self.downloadMP3] if o.isChecked()]
@@ -83,7 +90,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         if url and options and output_path:
             res = YouTubeDownloader().download_video(url, output_path, options)
             self.show_success_dialog(res)
-
 
         self.wipe_all_fields()
 
@@ -98,7 +104,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def dropEvent(self, event):
         for url in event.mimeData().urls():
-            print(url)
             file_path = url.toLocalFile()
             self.dropped_files.append(file_path)
 

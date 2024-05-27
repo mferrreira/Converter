@@ -10,7 +10,8 @@ class Organizer:
             "documentos": ["pdf", "doc", "docx", "txt", "xlsx", "ppt", "pptx"],
             "imagens": ["jpg", "jpeg", "png", "gif", "bmp", "tiff", "svg"],
             "audios": ["mp3", "wav", "aac", "flac", "ogg"],
-            "videos": ["mp4", "mkv", "flv", "avi", "mov", "wmv"]
+            "videos": ["mp4", "mkv", "flv", "avi", "mov", "wmv"],
+            "programas": ["exe", "msi"]
         }
         self._create_folders()
 

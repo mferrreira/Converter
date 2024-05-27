@@ -31,7 +31,7 @@
 color: #000;</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="ConversionTab">
      <property name="styleSheet">
@@ -56,7 +56,7 @@ color: #000;</string>
           <string notr="true"/>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="main">
           <widget class="QPushButton" name="ConvertImagesButton">
@@ -218,8 +218,7 @@ color: #000;</string>
             </rect>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: #bbb;
-</string>
+            <string notr="true"/>
            </property>
            <property name="frameShape">
             <enum>QFrame::Shape::StyledPanel</enum>
@@ -462,8 +461,7 @@ color: #000;</string>
               </rect>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: #bbb;
-</string>
+              <string notr="true"/>
              </property>
              <property name="frameShape">
               <enum>QFrame::Shape::StyledPanel</enum>
@@ -886,8 +884,7 @@ color: #000;</string>
               </rect>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: #bbb;
-</string>
+              <string notr="true"/>
              </property>
              <property name="frameShape">
               <enum>QFrame::Shape::StyledPanel</enum>
@@ -985,6 +982,19 @@ color: #000;</string>
              </property>
              <property name="text">
               <string>Voltar</string>
+             </property>
+            </widget>
+            <widget class="QCheckBox" name="remove_whitespace">
+             <property name="geometry">
+              <rect>
+               <x>1090</x>
+               <y>450</y>
+               <width>181</width>
+               <height>21</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>remover espaço em branco</string>
              </property>
             </widget>
            </widget>
@@ -1100,8 +1110,7 @@ color: #000;</string>
             </rect>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: #bbb;
-</string>
+            <string notr="true"/>
            </property>
            <property name="frameShape">
             <enum>QFrame::Shape::StyledPanel</enum>
@@ -1318,7 +1327,7 @@ color: #000;</string>
      <x>0</x>
      <y>0</y>
      <width>1525</width>
-     <height>20</height>
+     <height>33</height>
     </rect>
    </property>
   </widget>

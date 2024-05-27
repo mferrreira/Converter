@@ -1,10 +1,8 @@
-/* Janela principal */
 QMainWindow {
     background-color: #f0f0f0;
     color: #000;
 }
 
-/* Tab Widget */
 QTabWidget::pane {
     border: 1px solid #bcbcbc;
 }
@@ -22,20 +20,18 @@ QTabBar::tab:selected {
     border-bottom-color: #ffffff;
 }
 
-/* Stack Widget */
 QStackedWidget {
     background-color: #ffffff;
     border-radius: 10px;
 }
 
-/* Botões */
 QPushButton {
     background-color: #e0e0e0;
     border: 1px solid #bcbcbc;
     border-radius: 4px;
 }
 
-QPushButton:hover {
+QPushButton::hover {
     background-color: #d0d0d0;
 }
 
