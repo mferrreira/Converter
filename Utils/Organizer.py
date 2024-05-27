@@ -28,7 +28,6 @@ class Organizer:
     def organize_files(self):
         try:
             for item in self.base_path.iterdir():
-                print(item)
                 if item.is_file():
                     file_extension = item.suffix[1:].lower()
                     file_type = self._get_file_type(file_extension)
